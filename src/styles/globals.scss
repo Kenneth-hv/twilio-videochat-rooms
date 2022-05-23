@@ -1,0 +1,219 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: hsl(228, 68%, 24%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.toolbar {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+
+  height: 70px;
+  background-color: rgba(79, 79, 79, 0.558);
+
+  @media (min-width: 768px) {
+    left: 50%;
+    margin-left: -300px;
+    width: 600px;
+
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  z-index: 10;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.toolbar > .toolbarButton {
+  height: 60px;
+  width: 60px;
+  padding: 10px;
+  border-radius: 30px;
+
+  background-color: rgb(177, 177, 177);
+  box-shadow: 2px 2px 5px #0007;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(207, 207, 207);
+  }
+}
+
+.toolbar > .toolbarButton:nth-of-type(3) {
+  margin-top: -30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+
+  background-color: rgb(255, 0, 0);
+
+  &:hover {
+    background-color: rgb(255, 98, 98);
+  }
+}
+
+#room {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #000000;
+
+  > div {
+    position: absolute;
+
+    .videoContainer > p {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      padding: 0.2em;
+      font-size: 1.2em;
+
+      z-index: 10;
+
+      color: white;
+      background-color: #0007;
+    }
+
+    &#mainVideo {
+      min-height: 100vh;
+      width: 100vw;
+      margin: auto;
+
+      .videoContainer {
+        position: relative;
+
+        overflow: hidden;
+
+        min-height: 100vh;
+        width: 100vw;
+
+        display: flex;
+
+        justify-content: center;
+
+        video {
+          min-height: 100vh;
+        }
+      }
+    }
+
+    &#secondaryVideo {
+      position: absolute;
+      right: 0;
+      z-index: 1;
+
+      .videoContainer {
+        position: relative;
+
+        video {
+          height: 200px;
+        }
+
+        p {
+          position: absolute;
+
+          left: unset;
+          right: 0;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
+#connectPanel {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(216, 216, 216);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: rgb(0, 0, 0);
+
+  > .row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    column-gap: 1em;
+
+    align-items: baseline;
+
+    > input {
+      height: 2em;
+    }
+  }
+
+  > button {
+    margin-top: 1em;
+    padding: 1em 1.5em;
+    border: 0;
+    border-radius: 0.5em;
+  }
+}
+
+#previewPanel {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  background-color: rgb(255, 255, 255);
+
+  > .row {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    z-index: 10;
+  }
+
+  > video {
+    width: 640px;
+    height: 480px;
+    max-width: 100vw;
+  }
+
+  #enableVideo {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+  }
+
+  #enableAudio {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+  }
+
+  > button {
+    border: 0;
+    padding: 1em 2em;
+    cursor: pointer;
+  }
+}
